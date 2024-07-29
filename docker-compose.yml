@@ -1,0 +1,32 @@
+services:
+  wordpress1:
+    image: wordpress:latest
+    container_name: wordpress1
+    ports:
+      - "8001:80"
+    environment:
+      WORDPRESS_DB_HOST: base_master3
+      WORDPRESS_DB_USER: vanessa
+      WORDPRESS_DB_PASSWORD: vanessa
+      WORDPRESS_DB_NAME: wordpress
+      WORD_TABLE_PREFIX: wp1_ #CAMBIAR ENB NODO
+  base_master3:
+    image: mysql:5.7
+    container_name: base_master3
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: vanessa
+      MYSQL_PASSWORD: vanessa
+      #AGREGAR PARA REPLICAS
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: php3
+    ports:
+      - "8080:80"
+    environment:
+      PWA_HOSTS: "base_master3"
+      PWA_ARBITRARY: 1
+
+    
