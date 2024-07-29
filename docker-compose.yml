@@ -16,8 +16,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: wordpress
-      MYSQL_USER: vanessa
-      MYSQL_PASSWORD: vanessa
+      WORDPRESS_DB_USER: vanessa
+      WORDPRESS_DB_PASSWORD: vanessa
       #AGREGAR PARA REPLICAS
 
   phpmyadmin:
